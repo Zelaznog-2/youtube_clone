@@ -1,0 +1,43 @@
+{% extends "../layouts/base.html" %}
+
+{% block title %}Historial{% endblock %}
+
+{% block header %}Historial de videos{% endblock %}
+
+{% block content %}
+
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            {% for last in list_videos %}
+            
+                <div class="col">
+                    <div class="card mb-3">
+                    {# <img src="..." class="card-img-top" alt="..."> #}
+
+                    {% include "./partials/frame.html" with custom_class="card-img-top" width=300 height=400 url_embed=last.video.url_embed %} 
+                    <div class="card-body">
+                        <a href="{% url 'detail' last.video.id %}" class="card-title">{{ last.video.title }}</a>
+                        <p class="card-text"><small class="text-body-secondary">{{last.video.created_at}}</small></p>
+                    </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <nav class="Page navigation example">
+            <ul class="pagination">
+                {% if list_videos.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page=1">&laquo; Primero</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{ list_videos.previous_page_number }}">Anterior</a></li>
+                {% endif %}
+
+                <li class="page-item active">
+                    Pagina {{ list_videos.number }} de {{ list_videos.paginator.num_pages }}.
+                </li>
+
+                {% if list_videos.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ list_videos.next_page_number }}">Siguiente</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{ list_videos.paginator.num_pages }}">Ultimo &raquo;</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+{% endblock %}

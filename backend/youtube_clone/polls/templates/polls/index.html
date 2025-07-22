@@ -1,0 +1,24 @@
+{% extends "./layouts/base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block header %}Principal{% endblock %}
+
+{% block content %}
+
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            {% for video in list_videos %}
+                <div class="col">
+                    <div class="card mb-3">
+                    {# <img src="..." class="card-img-top" alt="..."> #}
+
+                    {% include "./videos/partials/frame.html" with custom_class="card-img-top" width=300 height=400 url_embed=video.url_embed %} 
+                    <div class="card-body">
+                        <a href="{% url 'detail' video.id %}" class="card-title">{{ video.title }}</a>
+                        <p class="card-text"><small class="text-body-secondary">{{video.created_at}}</small></p>
+                    </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+{% endblock %}

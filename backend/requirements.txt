@@ -1,0 +1,15 @@
+# Django Core
+Django==4.2.7
+gunicorn==21.2.0
+
+# PostgreSQL
+psycopg2-binary==2.9.9
+
+# Frontend/Bootstrap
+django-bootstrap5==23.3
+
+# Fechas y cálculo de popularidad
+python-dateutil==2.9.0.post0
+
+# Variables de entorno (para Docker)
+python-dotenv==1.0.1

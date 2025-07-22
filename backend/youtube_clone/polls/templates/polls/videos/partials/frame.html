@@ -1,0 +1,15 @@
+{% if width <= 300 %}
+    <iframe 
+        class="{{ custom_class }}"
+        width="{{ width }}" 
+        height="{{ height }}"
+        src="{{ url_embed }}?controls=0">
+    </iframe> 
+{% elif width > 300 %}
+    <iframe 
+        class="{{ custom_class }}"
+        width="{{ width }}" 
+        height="{{ height }}"
+        src="{{ url_embed }}">
+    </iframe> 
+{% endif %}
