@@ -1,4 +1,4 @@
-# ✅ README Mejorado – Clon de YouTube
+# ✅ Clon de YouTube
 
 ## 🚀 Pasos para ejecutar el proyecto
 
